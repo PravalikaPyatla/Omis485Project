@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="finder.js"></script>
+</head>
+<body>
+<div class="search-container">
+    <form action="#">
+      <input type="text" placeholder="Enter Course.." name="search" id="courseInput">
+      <button type="submit" onclick="updateRows()">Search</button>
+    </form>
+</div>
+<table id="result">
+<thead id="tableHeader">
+<tr>
+<th>Name</th>
+<th>Contact No</th>
+<th>Address</th>
+<th>Price/hour</th>
+<th>Rating</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody id="resultRows"></tbody>
+</table>
+</body>
+</html>
