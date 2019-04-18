@@ -18,11 +18,6 @@ var tutorList = [
 
 function updateRows()
 {
-	var Parent = document.getElementById("result");
-	while(Parent.hasChildNodes())
-	{
-	Parent.removeChild(Parent.firstChild);
-	}
 	courseName = document.getElementById("courseInput");
 	tableBody = document.getElementById("resultRows");
 	console.log(courseName)
