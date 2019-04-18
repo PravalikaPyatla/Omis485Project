@@ -1,16 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Find A Tutor </title>
 <script src="finder.js"></script>
+      <style> 
+	  body
+	  {
+	  background-repeat:no-repeat;
+	  }
+         form
+         { 
+         margin:80px 100px 50px 80px; 
+         } 
+		 
+		 h1{
+		 color: #A52A2A; 
+		 font-family: "Comic Sans MS", cursive, sans-serif;
+		 text-align: center;
+		 font-size: 40px;
+		 }
+		 .resizedTextbox 
+		 
+		 {width: 450px; height: 55px }
+		 
+		 .resizedbutton 
+		 
+		 {width: 150px; height: 55px; background-color: #4CAF50;}
+		 
+		 input{
+		 font-size:24px;
+		 }
+		 
+		 
+#result 
+{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#result td, #result th 
+{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#result tr:nth-child(even)
+
+{background-color: #f2f2f2;}
+
+#result tr:hover 
+
+{background-color: #ddd;}
+
+#result th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #20B2AA;
+  color: white;
+}
+
+		 
+      </style>
 </head>
-<body>
+
+<body >
+<h1> Find Your Tutor </h1>
 <div class="search-container">
+<center>
     <form action="#">
-      <input type="text" placeholder="Enter Course.." name="search" id="courseInput">
-      <button type="submit" onclick="updateRows()">Search</button>
+      <input type="text" class="resizedTextbox" placeholder="Enter Course.." name="search" id="courseInput">
+      <button type="submit" class="resizedbutton" onclick="updateRows()">Search</button>
     </form>
+</center>
 </div>
-<table id="result">
+<br>
+<br>
+
+<center>
+<table id="result" border = "1">
 <thead id="tableHeader">
 <tr>
 <th>Name</th>
@@ -23,5 +92,6 @@
 </thead>
 <tbody id="resultRows"></tbody>
 </table>
+<center>
 </body>
 </html>
