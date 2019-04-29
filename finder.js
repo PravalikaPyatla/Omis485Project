@@ -16,42 +16,48 @@ console.log(tutorList);
 			row = document.createElement("tr");
 			nameValue = document.createElement("td");
 			contactValue = document.createElement("td");
-			addressValue = document.createElement("td");
+			addressValue = document.createElement("a");
 			priceValue = document.createElement("td");
 			ratingValue = document.createElement("td");
 			availableValue = document.createElement("td");
-			dirValue = document.createElement("INPUT");
+			var link = document.createElement("a");
+			dirValue = document.createElement('input');
 			nameValue.innerHTML = tutorList[i].name;
 			contactValue.innerHTML = tutorList[i].contact;
-			addressValue.innerHTML = tutorList[i].address;
+			//addressValue.innerHTML = tutorList[i].address;
 			priceValue.innerHTML = tutorList[i].price;
 			ratingValue.innerHTML = tutorList[i].rating;
 			
-			var createform = document.createElement('form'); // Create New Element Form
-			createform.setAttribute("action", "http://maps.google.com/maps"); // Setting Action Attribute on Form
-			createform.setAttribute("target", "_blank")
-			createform.setAttribute("method", "get"); // Setting Method Attribute on Form
-			submitelement = document.createElement('input'); // Append Submit Button
-			submitelement.setAttribute("type", "submit");
-			submitelement.setAttribute("value", "Get Directions");
-			submitelement.setAttribute("action", "http://maps.google.com/maps");
 			
-			submitelement.id = "dirid";
-			submitelement.onclick = myFunction;
-			destelement = document.createElement('input');
-			destelement.setAttribute("type", "text");
-			destelement.name = "daddr"
-			destelement.setAttribute("value", tutorList[i].address);
-			console.log(tutorList[i].address);
+			
+			addressValue.setAttribute("href", "https://www.google.com/maps")
+			addressValue.className = "someCSSclass";
+
+			var linkText = document.createTextNode(tutorList[i].address);
+			addressValue.appendChild(linkText);
+			
+			 // Append Submit Button
+			dirValue.setAttribute("type", "submit");
+			dirValue.setAttribute("value", "Schedule");
+			dirValue.setAttribute("action", "");
+			
+			dirValue.id = "dirid";
+			dirValue.onclick = myFunction;
+			
+			
+			
 			row.appendChild(nameValue);
 			row.appendChild(contactValue);
 			row.appendChild(addressValue);
 			row.appendChild(priceValue);
 			row.appendChild(ratingValue);
 			row.appendChild(availableValue);
-			row.appendChild(submitelement); 
+			
+			row.appendChild(dirValue);
+			 
 			tableBody.appendChild(row);
-			console.log(row);
+			
+		
 			var datevalue1 = tutorList[i].datefrom;
 			var datevalue2 = tutorList[i].dateto;
 			var dateen = dateentered.value;
@@ -68,9 +74,17 @@ console.log(tutorList);
 				availableValue.innerHTML = " <span style='color:#FF0000'> unavailable </span> ";
 			
 			document.getElementById("dirid").onclick = function() {myFunction()};
+			var top = window.screen.height - 600;
+    top = top > 0 ? top/2 : 0;
+            
+var left = window.screen.width - 700;
+    left = left > 0 ? left/2 : 0;
+
+
+    
 			function myFunction() 
 			{
-            myWindow = window.open("http://maps.google.com/maps", "myWindow", "width=600,height=600");   // Opens a new window
+            myWindow = window.open("index1.html", "myWindow", "width=800,height=600" + ",top=" + top + ",left=" + left);   // Opens a new window
 			}
 		}
 	}
