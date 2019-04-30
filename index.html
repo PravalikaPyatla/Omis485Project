@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<h5 id ="heading" class = "head"></h5>
 <title>Find A Tutor </title>
 <script src="finder.js"></script>
 <script src="data.js"></script>
@@ -11,6 +12,8 @@
   $( function() {
     $( "#datepicker" ).datepicker();
   } );
+  var d = new Date();
+document.getElementById("heading").innerHTML = d;
   </script>
       <style> 
 	  body
@@ -38,6 +41,11 @@
 		 
 		 input{
 		 font-size:24px;
+		 }
+		  .head{
+		  position: absolute;
+    top: 0px;
+    right: 0px;
 		 }
 		 
 		 
