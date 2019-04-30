@@ -1,0 +1,73 @@
+<html>
+<head>
+<h1>Schedule a Meeting</h1>
+<h5 id ="heading" class = "head"></h5>
+<style>
+		form
+         { 
+         margin:50px 100px 50px 80px; 
+         } 
+		 
+		 h1
+		 {
+		 position: relative;
+		 top:30px;
+		 
+		 
+		 color: #A52A2A; 
+		 font-family: "Comic Sans MS", cursive, sans-serif;
+		 text-align: center;
+		 font-size: 40px;
+		 }
+		 
+		 .lab
+		 {
+		 font-size: 20px;
+		 }
+		 
+		.appt
+		 
+		 {width: 150px; height: 40px; text-align: center; font-size: 15px }
+		 
+		 .resizedbutton 
+		 
+		 {width: 150px; height: 55px; background-color: #4CAF50;}
+		 .head{
+		  position: absolute;
+    top: 0px;
+    right: 0px;
+		 }
+
+</style>
+<script>
+function openWin() {
+  myWindow1 = window.open("index2.html", "myWindow1", "width=600, height=400");   // Opens a new window
+}
+
+function closeWin() {
+  window.close();   // Closes the new window
+}
+var d = new Date();
+document.getElementById("heading").innerHTML = d;
+</script>
+</head>
+<body>
+<center>
+<form>
+<label class = "lab" for="appt">Choose a time to Schedule:</label>
+
+<input type="time" class="appt" name="appt"
+       min="9:00" max="18:00" required>
+
+
+ <br><br><br>
+ 
+ <button type="submit" class="resizedbutton" onclick="openWin()" >Schedule</button>
+ <br>
+ <br>
+ <button type="submit" class="resizedbutton" onclick="closeWin()" >Cancel</button>
+ </form>
+ <center><p id = "demo"></p></center>
+</center>
+</body>
+</html>
