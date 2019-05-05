@@ -3,6 +3,8 @@
 <head>
 <h5 id ="heading" class = "head"></h5>
 <title>Find A Tutor </title>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="finder.js"></script>
 <script src="data.js"></script>
 
@@ -12,8 +14,28 @@
   $( function() {
     $( "#datepicker" ).datepicker();
   } );
-  var d = new Date();
-document.getElementById("heading").innerHTML = d;
+  
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+function myMessage()
+{
+	alert("Your message has been sent.\nThank you!!");
+}
   </script>
       <style> 
 	  body
@@ -71,22 +93,120 @@ document.getElementById("heading").innerHTML = d;
   background-color: #20B2AA;
   color: white;
 }
-		 
+		* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #f7e902;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #ccc328;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: white;}
+#News {background-color: white;}
+#Contact {background-color: white;}
+#About {background-color: white;}
+ input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+#submitBtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submitBtn:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
       </style>
 </head>
 
 <body >
+<button class="tablink" onclick="openPage('Home', this, 'white')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('Search', this, 'white')" >Search</button>
+<button class="tablink" onclick="openPage('Contact', this, 'white')">Contact</button>
+<button class="tablink" onclick="openPage('About', this, 'white')">About</button>
+
+<div id = "Home" class = "tabcontent">
+<div >
+  <img class="mySlides" src="tutors1.jpg" style="width:100%;height:75%">
+  <img class="mySlides" src="tutors2.jpg" style="width:100%;height:75%">
+  <img class="mySlides" src="tutors3.jpg" style="width:100%;height:75%">
+</div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+	var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 3000); // Change image every 2 seconds
+}
+</script>
+</div>
+<div id = "Search" class = "tabcontent">
 <h1> Find Your Tutor </h1>
 <div class="search-container">
 <center>
     <form action="#">
-	<input type="text" class = "resizedTextbox" placeholder = "Enter Date.." id="datepicker">
-	&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="text" class="resizedTextbox" placeholder="Enter Course.." name="search" id="courseInput">
+	<input type="text" class="resizedTextbox" placeholder="Enter Course.." name="search" id="courseInput">
       
+	&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" class = "resizedTextbox" placeholder = "Enter Date.." id="datepicker">
+	
 	  <br><br>
  
- <button type="submit" class="resizedbutton" onclick="updateRows()">Search</button>
+ <button type="button" class="resizedbutton" onclick="updateRows()">Search</button>
 
     </form>
 </center>
@@ -112,5 +232,33 @@ document.getElementById("heading").innerHTML = d;
 <tbody id="resultRows"></tbody>
 </table>
 <center>
+</div>
+<div id = "Contact" class = "tabcontent">
+<h3>Contact Form</h3>
+
+<div class="container">
+  <form action="#">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write your message.." style="height:200px"></textarea>
+
+    <input id="submitBtn" type="submit" value="Submit" onclick= "myMessage()">
+  </form>
+</div>
+
+</div>
+<div id = "About" class = "tabcontent">
+<b><h1 style="font-size:40px">About US</h1></b>
+<p style="text-align:center;font-style:italic;font-size:30px">
+
+Students can meet with the expert of their choice. <b><q>SAVES TIME</q></b> and easily fit lessons into student's schedule.Collaborate with features built for any skill or subject.
+
+</p>
+</div>
 </body>
 </html>
