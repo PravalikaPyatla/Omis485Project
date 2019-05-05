@@ -2,7 +2,7 @@ function updateRows()
 {
 	var tutorList = data;
 console.log(tutorList);
-
+	var originA = prompt("Enter your current location");
 	courseName = document.getElementById("courseInput");
 	tableBody = document.getElementById("resultRows");
 	dateentered = document.getElementById("datepicker");
@@ -24,13 +24,11 @@ console.log(tutorList);
 			dirValue = document.createElement('input');
 			nameValue.innerHTML = tutorList[i].name;
 			contactValue.innerHTML = tutorList[i].contact;
-			//addressValue.innerHTML = tutorList[i].address;
 			priceValue.innerHTML = tutorList[i].price;
 			ratingValue.innerHTML = tutorList[i].rating;
 			
+			addressValue.setAttribute("href", "https://www.google.com/maps/dir/?api=1&origin="+originA+"&destination="+tutorList[i].address+"&travelmode=traffic");
 			
-			
-			addressValue.setAttribute("href", "https://www.google.com/maps")
 			addressValue.className = "someCSSclass";
 
 			var linkText = document.createTextNode(tutorList[i].address);
