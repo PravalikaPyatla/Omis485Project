@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="ouical.min.js"></script>
+	<script src= "data.js"></script>
+	<style>
+	.new-cal2 
+		 
+		 {position: absolute; top: 300px; left:300px; border:2px width: 150px; height: 55px; font-size:20px;}
+		 </style>
+    <link rel="stylesheet" href="main.css">
+    <title>Calendar</title>
+  </head>
+
+  <body>
+   <center> <div class="new-cal"></div></center>
+   <center> <div class="new-cal2"></div></center>
+  <script>
+      courseName = document.getElementById("courseInput");
+	  dateentered = document.getElementById("datepicker");
+      myCalendar2 = createCalendar({
+        options: {
+          class: 'my-class'                         // Notice how this one does not have a preset ID
+        },
+        data: {
+          title: 'Meeting With The Tutor',
+          start: new Date(dateentered),
+          duration: 60,
+          description: 'About Tutoring'
+        }
+      });
+
+    
+      document.querySelector('.new-cal2').appendChild(myCalendar2);
+  </script>
+  </body>
+</html>
