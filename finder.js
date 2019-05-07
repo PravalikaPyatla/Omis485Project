@@ -4,15 +4,40 @@ function updateRows()
 console.log(tutorList);
 	var originA = prompt("Enter your current location");
 	courseName = document.getElementById("courseInput");
+	tableHead = document.getElementById("tableHeader");
 	tableBody = document.getElementById("resultRows");
 	dateentered = document.getElementById("datepicker");
 	console.log(courseName);
 	console.log(dateentered);
+	headrow = document.createElement("tr");
+			nameH = document.createElement("th");
+			contactH = document.createElement("th");
+			addressH = document.createElement("th");
+			priceH = document.createElement("th");
+			ratingH = document.createElement("th");
+			availableH = document.createElement("th");
+			scheduleH = document.createElement("th");
+			nameH.innerHTML = "Name";
+			contactH.innerHTML = "Contact";
+			addressH.innerHTML = "Address";
+			priceH.innerHTML = "Price/hour";
+			ratingH.innerHTML = "Rating";
+			availableH.innerHTML = "Availability";
+			scheduleH.innerHTML = "Schedule";
+			headrow.appendChild(nameH);
+			headrow.appendChild(contactH);
+			headrow.appendChild(addressH);
+			headrow.appendChild(priceH);
+			headrow.appendChild(ratingH);
+			headrow.appendChild(availableH);
+			headrow.appendChild(scheduleH);
+			tableHeader.appendChild(headrow);
 	for(var i=0; i<tutorList.length; i++){
 		console.log("course in array: ",tutorList[i].course);
 		if((tutorList[i].course).toLowerCase() == (courseName.value).toLowerCase())
 		{
 			console.log("match");
+			
 			row = document.createElement("tr");
 			nameValue = document.createElement("td");
 			contactValue = document.createElement("td");
@@ -82,7 +107,7 @@ var left = window.screen.width - 700;
     
 			function myFunction() 
 			{
-            myWindow = window.open("index1.html", "myWindow", "width=800,height=600" + ",top=" + top + ",left=" + left);   // Opens a new window
+            myWindow = window.open("example.html", "myWindow", "width=800,height=600" + ",top=" + top + ",left=" + left);   // Opens a new window
 			}
 		}
 	}
